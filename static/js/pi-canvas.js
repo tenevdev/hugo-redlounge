@@ -3,14 +3,17 @@ var canvas = document.getElementById('drawingBoard'),
 
 // Parameters
 var INTERVAL = 90,
-    FONTSIZE = 14,
+    ROW_FONTSIZE = 14,
+    COLUMN_END = Math.floor(canvas.width / ROW_FONTSIZE)
     CHARACTER = "π",
-    rows = canvas.height / FONTSIZE,
-    traces = []
+    rows = Math.floor(canvas.height / ROW_FONTSIZE),
+    rowTraces = [],
+    rowDirections = []
 
-// Initialize traces
+// Initialize rowTraces
 for (var i = 1; i < rows; i++) {
-    traces[i] = Math.floor(Math.random() * canvas.width)
+    rowTraces[i] = Math.floor(Math.random() * canvas.width)
+    rowDirections[i] = 1
 }
 
 // Line style
@@ -24,17 +27,25 @@ function draw() {
 
     // Green letters
     context.fillStyle = "#0F0"; //green text
-    context.font = FONTSIZE + "px arial"
 
-    for (var i = 0; i < traces.length; i++) {
-        context.fillText(CHARACTER, traces[i] * FONTSIZE, i * FONTSIZE)
+    // Render rows
+    context.font = ROW_FONTSIZE + "px arial"
+
+    for (var i = 0; i < rowTraces.length; i++) {
+        context.fillText(CHARACTER, rowTraces[i] * ROW_FONTSIZE, i * ROW_FONTSIZE)
 
         // Move trace
-        traces[i]++
+        rowTraces[i] += rowDirections[i]
 
-        // Bring traces back to start
-        if (traces[i] * FONTSIZE > canvas.width && Math.random() > 0.9) {
-            traces[i] = 0
+        // Bring rowTraces back to start
+        if ((rowTraces[i] > COLUMN_END || rowTraces[i] < 0) && Math.random() > 0.9) {
+            if (Math.random() > 0.5) {
+                rowTraces[i] = 0
+                rowDirections[i] = 1
+            } else {
+                rowTraces[i] = COLUMN_END
+                rowDirections[i] = -1
+            }
         }
     }
 }
