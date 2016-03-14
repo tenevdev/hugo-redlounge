@@ -11,21 +11,22 @@
 
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item"><span class="nav-item-separator">//</span><a href="{{ .Site.BaseURL }}/introduction/introduction">Home</a></li>
-        {{ range .Site.Menus.about }}
-          <li class="nav-item"><span class="nav-item-separator">//</span><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
-        <br>
-        <li class="nav-item-main"><span class="nav-item-separator">I</span><span>Typed pi-calculus</span></li>
+        <li class="nav-item-main"><span class="nav-item-separator">//</span><a href="{{ .Site.BaseURL }}introduction/introduction">Home</a></li>
+        <br><br>
+        <li class="nav-item-main"><span class="nav-item-separator">I</span><span class="item-heading">Typed pi-calculus</span></li>
         <br>
         {{ range $index, $element := .Site.Menus.intro}}
           <li class="nav-item"><span class="nav-item-separator">{{ add $index 1 }}</span><a href="{{ .URL }}">{{ .Name }}</a></li>
+          <br>
         {{ end }}
-        <br>
-        <li class="nav-item-main"><span class="nav-item-separator">II</span><span>Advanced typing</span></li>
+        <li class="nav-item-main"><span class="nav-item-separator">I I</span><span class="item-heading">Advanced typing</span></li>
         <br>
         {{ range $index, $element := .Site.Menus.advanced }}
           <li class="nav-item"><span class="nav-item-separator">{{ add $index 1 }}</span><a href="{{ .URL }}">{{ .Name }}</a></li> <br>
+        {{ end }}
+        {{ range .Site.Menus.about }}
+          <li class="nav-item-main"><span class="nav-item-separator">//</span><a href="{{ .URL }}">{{ .Name }}</a></li>
+          <br>
         {{ end }}
       </ul>
     </nav>
