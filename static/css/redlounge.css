@@ -150,6 +150,8 @@ h2.brand-tagline {
 .nav-item {
     display: inline-block;
     *display: inline;
+    float: left;
+    margin-left: 120px;
     zoom: 1;
 }
 .nav-item a {
