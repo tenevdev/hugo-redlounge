@@ -114,6 +114,7 @@ h2.brand-tagline {
     padding: 0;
     list-style: none;
     padding-bottom: 1rem;
+    min-height: 400px;
 }
 .nav-item-main {
 	display: inline-block;

@@ -1,5 +1,5 @@
 #drawingBoard {
-	margin-top: 80px;
+	margin-top: 40px;
 	width: 100%;
 	display: inline-block;
 }
@@ -15,4 +15,9 @@
 
 .float-left {
 	float: left;
+}
+
+.jax-big {
+	overflow-x: auto;
+	margin-bottom: 40px;
 }
