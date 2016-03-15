@@ -115,6 +115,7 @@ h2.brand-tagline {
     list-style: none;
     padding-bottom: 1rem;
     min-height: 400px;
+    text-align: left;
 }
 
 .nav-item-main {
