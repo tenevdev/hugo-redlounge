@@ -12,7 +12,11 @@
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item-main"><span class="nav-item-separator">//</span><a href="{{ .Site.BaseURL }}introduction/introduction">Home</a></li>
-        <br><br>
+        <br>
+        {{ range $index, $element := .Site.Menus.pre }}
+          <li class="nav-item"><span class="nav-item-separator">{{ $index }}</span><a href="{{ .URL }}">{{ .Name }}</a></li>
+          <br>
+        {{ end }}
         <li class="nav-item-main"><span class="nav-item-separator">I</span><span class="item-heading">Typed pi-calculus</span></li>
         <br>
         {{ range $index, $element := .Site.Menus.intro}}
